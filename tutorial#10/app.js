@@ -20,7 +20,7 @@ database.initialize(connectionString, err => {
         process.exit(1);
     }
 
-    const app = getApp(),
+    const app = getApp(database),
         keys = getKeys();
 
     const server = https.createServer({
