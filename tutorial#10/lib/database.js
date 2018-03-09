@@ -19,7 +19,8 @@ const database = {
                 return callback(err);
             }
 
-            const mappings = database.collection('mappings');
+            const myDatabase = database.db('db');
+            const mappings = myDatabase.collection('mappings');
 
             this.mappings = mappings;
             callback(null);
@@ -56,3 +57,5 @@ const database = {
         });
     }
 };
+
+module.exports = database;

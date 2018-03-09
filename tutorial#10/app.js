@@ -5,21 +5,30 @@ const https = require('https');
 const flaschenpost = require('flaschenpost'),
     processenv = require('processenv');
 
-const getApp = require('./lib/getApp'),
+const database = require('./lib/database'),
+    getApp = require('./lib/getApp'),
     getKeys = require('./keys');
 
 const logger = flaschenpost.getLogger();
 
-const port = processenv('PORT') || 3000;
+const connectionString = processenv('MONGO_URL') || 'mongodb://localhost:27017/admin',
+    port = processenv('PORT') || 3000;
 
-const app = getApp(),
-    keys = getKeys();
+database.initialize(connectionString, err => {
+    if (err) {
+        logger.error('Failed to connect to database.', { err });
+        process.exit(1);
+    }
 
-const server = https.createServer({
-    cert: keys.certificate,
-    key: keys.privateKey
-}, app);
+    const app = getApp(),
+        keys = getKeys();
 
-server.listen(3000, () => {
-    console.log('Server started.', { port });
+    const server = https.createServer({
+        cert: keys.certificate,
+        key: keys.privateKey
+    }, app);
+
+    server.listen(3000, () => {
+        console.log('Server started.', { port });
+    });
 });

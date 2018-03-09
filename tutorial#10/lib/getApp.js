@@ -39,3 +39,5 @@ const getApp = function (database) {
 
     return app;
 };
+
+module.exports = getApp;

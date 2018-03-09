@@ -1,6 +1,6 @@
 'use strict';
 
-const fs = requie('fs'),
+const fs = require('fs'),
     path = require('path');
 
 const getKeys = function () {
