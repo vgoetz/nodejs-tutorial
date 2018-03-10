@@ -61,7 +61,7 @@ const database = {
     const mapping = {
       id: uuid(),
       alias,
-      target: body.target,
+      target,
       statistics: {
         created: Date.now(),
         invoked: 0
