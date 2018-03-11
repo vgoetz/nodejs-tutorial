@@ -52,7 +52,7 @@ const database = {
       throw new Error('Callback is missing');
     }
 
-    this.mappings.find().toArray((err, mappings) => {
+    this.mappings.find({}, {_id: 0}).sort({alias: 1}).toArray((err, mappings) => {
       if (err) {
         return callback(err);
       }
