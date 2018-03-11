@@ -10,6 +10,7 @@
         "flaschenpost": "1.1.1",
         "mongodb": "3.0.3",
         "processenv": "1.0.0",
+        "require-dir": "^1.0.0",
         "uuidv4": "1.0.0"
     }
 }

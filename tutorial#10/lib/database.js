@@ -38,12 +38,26 @@ const database = {
     this.mappings.findOne({ alias }, (err, mapping) => {
       if (err) {
         return callback(err);
-      } 
+      }
       if (!mapping) {
         return callback(new Error('Alias not found.'));
       }
 
       return callback(null, mapping);
+    });
+  },
+
+  getMappings(callback) {
+    if (!callback) {
+      throw new Error('Callback is missing');
+    }
+
+    this.mappings.find().toArray((err, mappings) => {
+      if (err) {
+        return callback(err);
+      }
+
+      callback(null, mappings);
     });
   },
 
