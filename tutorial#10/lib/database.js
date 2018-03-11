@@ -89,6 +89,25 @@ const database = {
 
       callback(null);
     });
+  },
+
+  invokeMapping(id, callback) {
+    if (!id) {
+      throw new Error('Id is missing.');
+    }
+    if (!callback) {
+      throw new Error('Callback is missing');
+    }
+
+    this.mappings.updateOne( {id}, {
+      $inc: { 'statistics.invoked': 1 }
+    }, err => {
+      if (err) {
+        return callback(err);
+      }
+
+      callback(null);
+    });
   }
 };
 

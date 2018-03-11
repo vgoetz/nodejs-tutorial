@@ -17,7 +17,14 @@ const getAlias = function (database) {
         return res.status(404).end();
       }
 
-      res.redirect(307, mapping.target);
+
+      database.invokeMapping(mapping.id, err => {
+        if (err) {
+          return res.status(500).end();
+        }
+
+        res.redirect(307, mapping.target);
+      });
     });
   };
 };
