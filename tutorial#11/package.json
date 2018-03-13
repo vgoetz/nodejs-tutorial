@@ -1,0 +1,11 @@
+{
+    "name": "codestyle",
+    "version": "0.0.0",
+    "description": "just a tutorial",
+    "repository": "git",
+    "license": "MIT",
+    "dependencies": {
+        "eslint": "^4.18.2",
+        "eslint-config-es": "^0.9.1"
+    }
+}
