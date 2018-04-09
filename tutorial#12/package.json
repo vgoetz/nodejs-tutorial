@@ -4,7 +4,8 @@
     "description": "just a tutorial",
     "repository": "git",
     "license": "MIT",
-    "dependencies": {
+    "devDependencies": {
+        "assertthat": "1.0.0",
         "eslint": "^4.19.0",
         "eslint-config-es": "^0.9.1"
     }
