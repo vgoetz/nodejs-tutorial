@@ -1,3 +1,4 @@
 --ui tdd
 --bail
 --recursive
+--async-only
