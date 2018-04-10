@@ -1,0 +1,16 @@
+{
+    "name": "codestyle",
+    "version": "0.0.0",
+    "description": "just a tutorial",
+    "repository": "git",
+    "license": "MIT",
+    "devDependencies": {
+        "assertthat": "1.0.0",
+        "eslint": "^4.19.0",
+        "eslint-config-es": "^0.9.1"
+    },
+    "dependencies": {
+        "express": "^4.16.3",
+        "spdy": "^3.4.7"
+    }
+}
